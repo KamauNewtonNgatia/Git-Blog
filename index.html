@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<head>
+   
+    <title>Git Blog</title>
+
+<h1>Everyday Git</h1>
+
+</head>
+<body>
+    <h2>What is Git?</h2>
+    <p>Git is a Version Control System.
+        A version control system is a software that tracks and manages changes to files over time.
+        Version Control Systems allow users to revisit earlier versions of their files, compare changes between versions, undo changes and a lot more.
+        Other version control software include: Subversion, CVS, Mercurial.
+        They all have a common goal but vary significantly in how they achieve these goals.
+        GIT is the most popular version control software/system.
+        This blog is about Git and GitHub <STrong>ONLY</STrong>.
+    </p>
+        <h2>Installing Git</h2>
+        <p>
+            To use Git, we need to first download and install it.
+To download Git, visit <a href="https://git-scm.com/download" target="_blank" >Download Git</a> and download the version for your platform whether it is MacOS or Windows or Linux.
+Run the downloaded installer, leave all the default options during installation.
+        </p>
+        <h3>Confirming whether you have Git installed.</h3>
+        <p>
+            To confirm whether Git was installed successfully:
+            <br>
+
+            Open command prompt in windows or terminal in mac/linux.
+             <br>
+            Run the command: <strong>git --version</strong>
+           <br>
+           If a version number is returned, Git is installed on your system. If you receive any other output, Git is not installed.
+        </p>
+            
+
+           <figure>
+            <img src="./Images/gitversion.JPG" alt="Checking Git version">
+            <figcaption>Checking the Git version</figcaption>
+           </figure>
+           <h2>Configuring Git</h2>
+              <p>
+               Now that Git is installed, it's time to configure basic information.
+               We don't need to 'register an account' to use Git, however, we need to tell Git who we are.
+               We do this by providing our username and email address.
+              </p>
+              <h3>Configuring your username</h3>
+               <p>
+               Open command prompt or terminal depending on your platform.
+               <br>
+                Run the command:  <strong>git config --global user.name "USERNAME"
+                </strong>
+               </p>
+               <figure>
+                <img src="./Images/configuring username.JPG" alt="Configuring user name">
+                <figcaption>Configuring username</figcaption>
+               </figure>
+               <h3>Configuring your email address</h3>
+               <p>
+                Open command prompt or terminal depending on your platform.
+                <br>
+                 Run the command: <strong>git config --global user.email "EMAIL_ADDRESS"</strong>
+               </p>
+               <figure>
+                <img src="./Images/configuring email.JPG" alt="Configuring email">
+                <figcaption>Configuring email address</figcaption>
+               </figure>
+               <h2>Intializing a Git repository</h2>
+               <p>
+                A git repo is a workspace which tracks and manages files within a folder.
+                Anytime we want to use Git with a project, app, et.c, we need to create a new git repository.
+                We can have as many repos as we want on our machine all with separate history and content, however, it is important to note that a project should have a single Git repository.
+                
+                <br>
+                To initialize a git repository:
+                <br>
+
+                Open the terminal or command prompt in your project directory, you can also open your command line tool and navigate to your project directory.
+                <br> <br>
+                Run the command: <strong>git init</strong>
+
+                <br> <br>
+                The command will initialize a git repository in the project folder, this is where git will track and manage changes to files in your project.
+                <br>
+                <br>
+                 NOTE: Initializing a git repository is something you do once per project. Running the command  <strong>git init</strong> in a project that contains a git repository will make git initialize a repository within a repository.
+                 <br>
+                 <br>
+                 Tip: use <strong>git status</strong> to confirm whether your project has a git repository or not, more about <strong>git status</strong> later. When you run the <strong>git status</strong> command and get the message "fatal: not a git repository..." being returned, then it means that the project does not have a git repository, you can go ahead and initialize one.
+                 <br> <br>
+                 If you get anything else back, then it means that the current directory contains a git repository, therefore no need to initialize one again.
+
+
+               </p>
+               <figure>
+                <img src="./images/initialising git repo.JPG" alt="Initialising a Git repository">
+                <figcaption>if our project does not contain a git repository, we initialize one, we simply use the <em>git status</em> command to check whether our project contains a git repository, if it doesn't,then we initialize one</figcaption>
+               </figure>
+               <h2>Adding files to the staging area</h2>
+               <p>
+                In Git, the staging area also known as the index is an intermediate space where you can organize changes before committing them to the repository.
+                <br>
+                When you make changes to files in your working directory, those changes aren't immediately included in the next commit. Instead, you need to add these changes to the staging area using the <strong>git add</strong> command.
+                <br>
+                Once you are satisfied with the changes, you can commit them to the repository.To add changes, run the command <strong>git add FILE_NAME</strong> to add changes to the staging area. Replace <strong>FILE_NAME</strong> with the name of the file, for example, in my project, I have a file chapter1.txt with changes that I would like to add to the staging area.
+                <br><br>
+                <strong>git add </strong>chapter1.txt
+                <br><br>
+                You can also add multiple files to the staging area, simply list all the files as shown:
+                <br><br>
+                <strong>git add </strong>chapter1.txt chapter2.txt chapter3.txt chapter4.txt
+                <br><br>
+                If you want to add all the files in one go, you can use the period symbol or -A flag.
+                <br><br>
+                <strong>git add </strong>-A <br><br>
+                or <br><br>
+                <strong>git add</strong> .
+               </p>
+               <h2>Committing changes</h2>
+               <p>
+                A commit in git is basically a snapshot of your project at a particular point in time.
+               </p>
+               <h3>Key components of a commit</h3>
+                <ul>
+                    <li> <strong> A hash:</strong> a unique identifier for each commit</li>
+                    <li><strong>Commit message:</strong> a descriptive message that explains the purpose of the commit.</li>
+                    <li><strong>Author:</strong> the person who made the commit.</li>
+                    <li><strong>Timestamp:</strong> the date and time when the commit was made.</li>
+                   <p>Committing will only work if there are changes in the staging area.
+                    To commit, we use the <strong>git commit</strong> command.</p>
+                </ul>
+                <br>
+                <strong>git commit </strong>-m "MESSAGE"
+                <p>
+                    Replace MESSAGE with a short descriptive commit message of your choosing, for example:
+                </p>
+                <br>
+                <strong>git commit -m </strong>"write chapters 1 to 5"
+                <br>
+                <figure>
+                    <img src="./images/committing changes.JPG" alt="Committing changes in Git">
+                    <figcaption>committing changes in Git</figcaption>
+                </figure>
+                <h2>Branches</h2>
+                <p>Branches are alternative timelines for a project, they allow us to create separate contexts where we can try new things or even work on multiple ideas in parallel.</p>
+                <p>Whatever happens in one branch does not affect the other branches.
+                    In Git, we are always working inside a branch even if we don't specify a branch.</p>
+                    <h3>Creating a branch</h3>
+                    <p>To create a new branch, use the following command:</p>
+                    <p><strong>git branch </strong>your-branch-name</p>
+                    <figure>
+                        <img src="./images/creating a branch.JPG" alt="C reating a branch">
+                        <figcaption>Creating a branch in Git</figcaption>
+                    </figure>
+                    <h3> Viewing all branches</h3>
+                    <p>Use the command <strong>git branch</strong> to view your existing branches.
+                        The active branch will have a little asterisk symbol (*) beside it and in some command line interfaces will be green in color.</p>
+                        <figure>
+                            <img src="./images/viewing branches.JPG" alt="Viewing branches">
+                            <figcaption>Viewing branches in Git</figcaption>
+                        </figure>
+                        <h3>Switching active branches</h3>
+                        <p>
+                            Switching branches means changing the active branch. <br>
+                            To switch branches, we use the command:
+                            <br>
+                            <strong>git switch </strong>BRANCH_NAME
+                            <br>
+                           </p>
+                           <p>Replace BRANCH_NAME with the name of the branch, for example, if we want to make chapter1 the active branch (switching to it):</p>
+                           <strong>git switch </strong>chapter1
+                           <p>This will change the active branch from master to chapter1, we can prove this by running the This will change the active branch from master to chapter1, we can prove this by running the <strong>git branch</strong> command:</p>
+                           <figure>
+                            <img src="./images/switching branches.JPG" alt="Switching branches in Git">
+                            <figcaption>Switching branches in Git</figcaption>
+                           </figure>
+                           <p>We now see the asterisk symbol beside the chapter1 branch which means that this branch is the active branch.</p>
+                           <h3>Merging a branch</h3>
+                           <p>To merge branches:
+                            </p>
+                            <ul>
+                                <li>First, we switch to the branch where we want to merge the current branch.</li>
+                                <li> We use the command:</li>
+                            </ul>
+                            <strong>git merge </strong>BRANCH_NAME
+                            <p>where BRANCH_NAME is the name of the branch we want to merge to the current active branch.
+                                Assuming our official branch is called 'main' and we have content in a branch called 'chapter1' that we want to merge into main:</p>
+                                <ul>
+                                    <li>We start by switching to the main branch where we want to merge the changes from 'chapter1'.</li>
+                                </ul>
+                                <strong>git switch </strong>main
+                                <ul>
+                                    <li>We then use the git merge to merge the content from chapter1 to main.</li>
+                                </ul>
+                                <strong>git merge </strong>chapter1
+                                <figure>
+                                    <img src="./images/merging branches.JPG" alt="Merging branches">
+                                    <figcaption>Merging branches in Git</figcaption>
+                                </figure>
+                                <h3>Deleting a branch</h3>
+                                <p>To delete a branch, we use the git branch command and pass the -d flag.</p>
+                                <strong>git branch </strong>-d BRANCH_NAME
+                                <p>Replace BRANCH_NAME with the name of the branch you want to delete, for example, to delete the branch chapter1:</p>
+                                <strong>git branch </strong>-d chapter1
+                                <figure>
+                                    <img src="./images/deleting a branch.JPG" alt="Deleting a branch">
+                                    <figcaption>Deleting a branch in Git</figcaption>
+                                </figure>
+                                <p>
+                                    Using -d flag to delete a branch that has not been merged might give us an error, if are sure we want to delete the branch, we can force git to delete it by passing -D flag to the <strong>git branch</strong> command:
+                                </p>
+                                <strong>git branch </strong>-D BRANCH_NAME
+                                <p>Replace BRANCH_NAME with the name of the branch you want to force delete, for example, if the name of the branch is chapter1:</p>
+                                <strong>git branch </strong>-D chapter1
+                                <h2>Next Steps</h2>
+                                <ul>
+                                    <li>Learn more about git i.e renaming a branch, stashing and git tags</li>
+                                    <li>Read/learn about GitHUb as  a hosting platform for git repositories</li>
+                                    <li>Learn about git aliases and pulling and fetching</li>
+                                </ul>
+
+            
+               
+
+
+
+</body>
+</html>
